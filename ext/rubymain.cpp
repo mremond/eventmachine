@@ -20,6 +20,7 @@ See the file COPYING for complete licensing information.
 #include "project.h"
 #include "eventmachine.h"
 #include <ruby.h>
+#include <st.h>
 
 #ifndef RFLOAT_VALUE
 #define RFLOAT_VALUE(arg) RFLOAT(arg)->value

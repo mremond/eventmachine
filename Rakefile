@@ -1,5 +1,5 @@
 require 'rubygems'
-GEMSPEC = Gem::Specification.load('eventmachine-le.gemspec')
+GEMSPEC = Gem::Specification.load('eventmachine.gemspec.gemspec')
 
 require 'rake/clean'
 task :clobber => :clean
