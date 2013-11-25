@@ -150,17 +150,14 @@ SslContext_t::SslContext_t (bool is_server, const string &privkeyfile, const str
         switch(ssl_version) {
           /* SSLv23 */
           case 0:
-          	cerr << "SSLv23" << endl;
             pCtx = SSL_CTX_new (is_server ? SSLv23_server_method() : SSLv23_client_method());
             break;
           /* SSLv3 */
           case 1:
-            cerr << "SSLv3" << endl;
             pCtx = SSL_CTX_new (is_server ? SSLv3_server_method() : SSLv3_client_method());
             break;
           /* TLSv1 */
           case 2:
-            cerr << "TLSv1" << endl;
             pCtx = SSL_CTX_new (is_server ? TLSv1_server_method() : TLSv1_client_method());
             break;
         };
@@ -211,8 +208,7 @@ SslContext_t::SslContext_t (bool is_server, const string &privkeyfile, const str
         if (cipherlist.length() > 0)
           SSL_CTX_set_cipher_list (pCtx, cipherlist.c_str());
         else
-          SSL_CTX_set_cipher_list (pCtx, "ALL:!ADH:!LOW:!EXP:!DES-CBC3-SHA:@STRENGTH");
-          //SSL_CTX_set_cipher_list (pCtx, "HIGH:!DES-CBC3-MD5:!RC2-CBC-MD5:!RC4-MD5:!RC4-MD5:!aNULL:!SSLv2");
+          SSL_CTX_set_cipher_list (pCtx, "HIGH:!DES-CBC3-MD5:!RC2-CBC-MD5:!RC4-MD5:!RC4-MD5:!aNULL:!SSLv2");
 
 	if (is_server) {
 		SSL_CTX_sess_set_cache_size (pCtx, 128);
